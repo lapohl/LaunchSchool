@@ -47,7 +47,8 @@ def multiply(arg1, arg2)
 end
 
 puts multiply([9,9], 3) 
-=end
+
+
 def multiply(arg1, arg2)
   arg1 * arg2
 end
@@ -58,3 +59,24 @@ end
 
 puts square(5) == 25
 puts square(-8) == 64
+
+
+def oddities(input_array)
+  input_array.map.with_index {|num, index| num if ((index % 2) == 0)}.compact 
+end
+
+puts oddities([2, 3, 4, 5, 6]) == [2, 4, 6]
+puts oddities([1, 2, 3, 4, 5, 6]) == [1, 3, 5]
+puts oddities(['abc', 'def']) == ['abc']
+puts oddities([123]) == [123]
+puts oddities([]) == []
+=end
+
+def palindrome?(input_string)
+  input_string.downcase == input_string.reverse.downcase
+end
+
+puts palindrome?('madam') == true
+puts palindrome?('Madam') == false          # (case matters)
+puts palindrome?("madam i'm adam") == false # (all characters matter)
+puts palindrome?('356653') == true
